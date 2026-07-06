@@ -1,0 +1,74 @@
+{
+  "years": [
+    {
+      "year": 1929,
+      "pct_women": 0.0,
+      "pct_american": 0.3333,
+      "sample_artists": [
+        {
+          "Title": "Dialogue (Zwiesprache)",
+          "Artist": "Max Pechstein",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjExNDgzMCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=c853885a5f5dfc48",
+          "gender_clean": "male",
+          "Nationality": "german"
+        },
+        {
+          "Title": "Self-Portrait (Selbstbildnis)",
+          "Artist": "Max Beckmann",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjE2NjE4MSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=0aae2622dd61699d",
+          "gender_clean": "male",
+          "Nationality": "german"
+        },
+        {
+          "Title": "Woman, Standing in the Garden (Frau, im Garten stehend)",
+          "Artist": "Oskar Kokoschka",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjEyMjU0OCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=70ac615088f22057",
+          "gender_clean": "male",
+          "Nationality": "austrian"
+        },
+        {
+          "Title": "Anna Peter",
+          "Artist": "George Grosz",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjUxNzMwNCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=e052c650caa5d482",
+          "gender_clean": "male",
+          "Nationality": "american"
+        },
+        {
+          "Title": "The Lords of the World (Die Herren der Welt)",
+          "Artist": "Georg Scholz",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjEyMjcyMCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=7d7063abfee56f0d",
+          "gender_clean": "male",
+          "Nationality": "german"
+        },
+        {
+          "Title": "Before the Mirror (Vor dem Spiegel)",
+          "Artist": "Max Beckmann",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjExNDY5NSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=da2e767dbc4eb268",
+          "gender_clean": "male",
+          "Nationality": "german"
+        },
+        {
+          "Title": "Marine",
+          "Artist": "Lyonel Feininger",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjExNDcxOSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=90eaf0b3094c8e8d",
+          "gender_clean": "male",
+          "Nationality": "american"
+        },
+        {
+          "Title": "The Blessing of Heaven Is Visibly upon Me (Gottes sichtbarer Segen ist bei mir) from the portfolio The Robbers (Die R\u00e4uber)",
+          "Artist": "George Grosz",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjEzNDg3MyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=769c0112654c7b85",
+          "gender_clean": "male",
+          "Nationality": "american"
+        },
+        {
+          "Title": "Max Reinhardt (Head) (Kopf)",
+          "Artist": "Oskar Kokoschka",
+          "ImageURL": "https://www.moma.org/media/W1siZiIsIjExOTMxOCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=319d807ec751483a",
+          "gender_clean": "male",
+          "Nationality": "austrian"
+        }
+      ]
+    }
+  ]
+}
