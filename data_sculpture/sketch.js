@@ -1,6 +1,6 @@
 let data;
 
-let state = "field";       // "field" or "year"
+let state = "field";       // "field", "year", "star", or "transitioning"
 let selectedYear = null;   // holds the year's data object once clicked
 let starPositions = [];
 let selectedStar = null;
@@ -15,9 +15,8 @@ async function setup() {
     for (let yearData of data.years) {
       yearData.twinklePhase = random(TWO_PI);   // random starting point in the wave
       yearData.twinkleSpeed = random(0.001, 0.003);
-      yearData.revealDelay = random(0, 400);
+      yearData.revealDelay = random(0, 500);
     }
-
 
   } catch (err) {
     console.error("Failed to load JSON file. Check your file path or local server.", err);
@@ -26,28 +25,19 @@ async function setup() {
 
 function draw() {
   background(10);
-  console.log(data.years.length);
-
-  // let firstYear = data.years[0];
-  // let x = map(firstYear.year, 1929, 2026, 50, width - 50);
-  // let y = map(firstYear.pct_women, 0, 1, height - 50, 50);
-  // fill(255);
-  // noStroke();
-  // ellipse(x, y, 20, 20);
 
   if (transitioning) {
     handleTransition();
-  }
-  else if (state === "field") {
+  } else if (state === "field") {
     drawField();
   } else if (state === "year") {
     drawYearView();
   } else if (state === "star") {
     drawStarDetail();
   }
+  // fullscreen(true);
 
 }
-
 
 function drawField() {
   cursor(ARROW);
@@ -64,39 +54,46 @@ function drawField() {
 
     if (isHovered) {
       noStroke();
-      fill(241,154,200, 40);
-      ellipse(x, y, 30, 30);   // soft outer glow, drawn first (underneath)
-      fill(241,154,200, 80);
+      // fill(241,154,200, 40);
+      fill(235, 83, 159, 40);
+      ellipse(x, y, 30, 30);   // soft outer glow
+      // fill(241,154,200, 80);
+      fill(235, 83, 159, 80);
       ellipse(x, y, 20, 20);   // tighter glow layer
       cursor(HAND);            // visual cue: this is clickable
 
-      fill(241,154,200);
+      // fill(241,154,200);
+      fill(235, 83, 159);
       textAlign(LEFT);
-      textSize(12);
+      textSize(22);
       text(yearData.year, x + 15, y);
     }
 
-    // fill(255, 255, 255, brightness);
-    // constrain(brightness + alphaMod, 0, 255)
+    drawTitle();
+
     fill(241,154,200, constrain(brightness + alphaMod, 0, 255));
     noStroke();
-    let baseSize = isHovered ? 16 : 12;
+    let baseSize = isHovered ? 20 : 12;
     ellipse(x, y, baseSize + sizeMod, baseSize + sizeMod);
-    // ellipse(x, y, isHovered ? 16 : 12, isHovered ? 16 : 12);  // slightly bigger when hovered
-
-    // fill(255, 255, 255, brightness);
-    // noStroke();
-    // ellipse(x, y, 12, 12);
   }
   drawLegend()
+}
+
+function drawTitle() {
+  fill(235, 83, 159);
+  textAlign(RIGHT);
+  textSize(50);
+  textFont("monospace");
+  textStyle(BOLD);
+  text("Women in \n MoMA's \n Collection", width - 30, 70);
 }
 
 function drawLegend() {
   fill(235, 83, 159);
   textAlign(LEFT, TOP);
-  textSize(12);
-  text("↑ vertical position: % of that year's acquisitions including a woman artist", 20,  50);
-  text("● brightness: % of that year's acquisitions including a US artist", 20, 30);
+  textSize(14);
+  text("↑ vertical position: % acquisitions including a woman artist", 20,  90);
+  text("● brightness: % acquisitions including a US artist", 20, 70);
 }
 
 
@@ -117,8 +114,8 @@ function mousePressed() {
     for (let yearData of data.years) {
       let x = map(yearData.year, 1929, 2026, 50, width - 50);
       let y = map(yearData.pct_women, 0, 1, height - 50, 50);
-      let d = dist(mouseX, mouseY, x, y);
-      if (d < 10) {   // click tolerance — a bit bigger than the dot's radius, forgiving for imprecise clicks
+      // let d = dist(mouseX, mouseY, x, y);
+      if (dist(mouseX, mouseY, x, y) < 10) {   // forgiving for imprecise clicks
         // startTransition("year", yearData);
         // selectedYear = yearData;
         // state = "year";
@@ -153,15 +150,22 @@ function generateStarLayout() {
   for (let artist of selectedYear.sample_artists) {
     let sx = random(100, width - 100);
     let sy = random(100, height - 100);
-    starPositions.push({ x: sx, y: sy, artist: artist });
+    let spd =  random(0.2, 1.0);
+    starPositions.push({ x: sx, y: sy, artist: artist, spd: spd });
   }
 }
 
 function drawYearView() {
   cursor(ARROW);
-  fill(241,154,200);
-  textAlign(CENTER);
-  text("Year: " + selectedYear.year, width / 2, 40);
+  // fill(241,154,200);
+  fill(235, 83, 159);
+  textAlign(LEFT);
+  textSize(70);
+  textFont("sans-serif");
+  textStyle(BOLD);
+  text(selectedYear.year, 20, 40);
+
+  // let t = millis() * 0.0001;
 
   for (let s of starPositions) {
     let isHovered = dist(mouseX, mouseY, s.x, s.y) < 12;
@@ -177,6 +181,14 @@ function drawYearView() {
       textSize(12);
       text(s.artist.Artist, s.x + 15, s.y);
     }
+
+    // let nx = noise(s.x + t * s.spd);
+    // console.log(s.pct_american);
+    // let dx = map(nx, 0, 1, -80, 80);
+
+    // let ny = noise(s.y + t * s.spd);
+    // console.log(s.pct_american);
+    // let dy = map(nx, 0, 1, -80, 80);
 
     fill(241,154,200);
     noStroke();
