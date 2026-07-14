@@ -9,7 +9,7 @@ async function setup() {
   createCanvas(1200, 800);
 
   try {
-    data = await loadJSON('./data/moma_constellations.json');
+    data = await loadJSON('https://analogue-intelligence.github.io/moma_women_in_art/data_sculpture/data/moma_constellations.json');
     console.log("Data successfully loaded!");
     console.log(data.years.length);
     for (let yearData of data.years) {
